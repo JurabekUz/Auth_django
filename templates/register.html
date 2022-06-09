@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        section {
+            margin-top: 4rem;
+            display: inline-block;
+            padding: 2rem;
+            width: 20rem;
+            text-align: center;
+            border: 2px solid black;
+        }
+        form {
+            margin-top: 1rem;
+        }
+        label, input, button {
+            font-size: 18px;
+            text-align: left;
+            display: block;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <section>
+
+        <h2>Registration</h2>
+        <div>
+            {% for msg in messages %}
+                <p>
+                    {{ msg }}
+                </p>
+            {% endfor %}
+        </div>
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+
+            <label for="password1">Password</label>
+            <input type="password" name="password1" id="password1" required>
+
+            <label for="password2">Confirm Password</label>
+            <input type="password" name="password2" id="password2" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </section>
+</body>
+</html>
